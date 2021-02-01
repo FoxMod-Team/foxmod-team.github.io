@@ -98,204 +98,103 @@ li:hover > .submenu {
   visibility: visible;
   opacity: 1;
 }
-  /* Stili di base per oscuramento della finestra   */
-.overlay {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: none;
-/* livello di oscuramento  */
-    background-color: rgba(0, 0, 0, 0.65);
-    position: fixed; /* posizionamento fisso */
-    cursor: default; /* tipo del cursore */
-}
-/* attivare livello di oscuramento */
-.overlay:target {
-    display: block;
-}
-/* stili di finestre pop-up */
-.popup {
-    top: -100%;
-    right: 0;
-    left: 50%;
-    font-size: 14px;
-    z-index: 20;
+ul {
+    list-style-type: none;
     margin: 0;
-    width: 85%;
-    min-width: 320px;
-    max-width: 600px;
-/* posizionamento fisso allo scorrimento della pagina  */
-    position: fixed;
-    padding: 15px;
-    border: 1px solid #383838;
-    background: #fefefe;
-/* arrotondamento dei angoli  */
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px;
-    font: 14px/18px 'Tahoma', Arial, sans-serif;
-/* ombra esetrna */
-        box-shadow: 0 15px 20px rgba(0,0,0,.22),0 19px 60px rgba(0,0,0,.3);
-       transform: translate(-50%, -500%);
-    transition: transform 0.6s ease-out;
-}
-/* attivare finestra modale, viene utilizato pseudo-classe:target*/
-.overlay:target+.popup {
-    transform: translate(-50%, 0);
-    top: 20%;
-}
-/* formare il bottone di chiusura  */
-.close {
-    top: -10px;
-    right: -10px;
-    width: 20px;
-    height: 20px;
-    position: absolute;
     padding: 0;
-    border: 2px solid #ccc;
-    border-radius: 15px;
-    background-color: rgba(61, 61, 61, 0.8);
-    box-shadow: 0px 0px 10px #000;
-    text-align: center;
-    text-decoration: none;
-    font: 13px/20px 'Tahoma', Arial, sans-serif;
-    font-weight: bold;
-    transition: all ease .8s;
+    overflow: hidden;
+    background-color: #333;
 }
-.close:before {
-    color: rgba(255, 255, 255, 0.9);
-    content: "X";
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
-    font-size: 12px;
-}
-.close:hover {
-    background-color: rgba(252, 20, 0, 0.8);
-    transform: rotate(360deg);    
-}
-/* immagine al interno della afinestra */
-.popup img {
-    width: 100%;
-    height: auto;
-}
-/* miniatura a destra/sinistra  */
-.pic-left, 
-.pic-right {
-    width: 25%;
-    height: auto;
-}
-.pic-left {
+
+li {
     float: left;
-    margin: 5px 15px 5px 0;
 }
-.pic-right {
-    float: right;
-    margin: 5px 0 5px 15px;
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
-/* elemento media, frame  */
-.popup embed, 
-.popup iframe {
-    top: 0;
-    right: 0;
-    bottom: 0; 
-    left: 0; 
-    display:block;
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #FF7902;
+}
+.active {
+    background-color: #4CAF50;
+}
+/* Add a gray right border to all list items, except the last item (last-child) */
+li {
+    border-right: 1px solid #bbb;
+}
+
+li:last-child {
+    border-right: none;
+}
+folder {
+        body{background: url(img/boh.jpg) no-repeat fixed 0 100%}
+}
+.boximg {
+  position: relative;
+  width: 400px; /* Stessa larghezza dell'immagine */
+  height: 300px; /* Stessa altezza dell'immagine */
+}
+div.boxtesto {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.6);
+}
+span.testo {
+  padding: 10px;
+  color: #FFFFFF;
+  font: bold 24px/45px Helvetica, Sans-Serif;
+  letter-spacing: -1px;
+}
+/* Style the container with a rounded border, grey background and some padding and margin */
+.container {
+  border: 2px solid #ccc;
+  background-color: #eee;
+  border-radius: 5px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+/* Clear floats after containers */
+.container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Float images inside the container to the left. Add a right margin, and style the image as a circle */
+.container img {
+  float: left;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+/* Increase the font-size of a span element */
+.container span {
+  font-size: 20px;
+  margin-right: 15px;
+}
+
+/* Add media queries for responsiveness. This will center both the text and the image inside the container */
+@media (max-width: 500px) {
+  .container {
+    text-align: center;
+  }
+
+  .container img {
     margin: auto;
-    min-width: 320px;
-    max-width: 600px;
-    width: 100%;
-}
-.popup h2 { /* titolo 2 */
-    margin: 0;
-    color: #008000;
-    padding: 5px 0px 10px;
-    text-align: left;
-    text-shadow: 1px 1px 3px #adadad;
-    font-weight: 500;
-    font-size: 1.4em;
-    font-family: 'Tahoma', Arial, sans-serif;
-    line-height: 1.3;
-}
-/* paragrafi*/
-.popup p {margin: 0; padding: 5px 0}
-
- 
-/* -----------------Menu nella versione mobile-----------------*/
-
-.active{
-	color:#FFFFFF/* primary super-lightcolor*/;
-	background-color: #B3453E/* primary lightcolor*/;
-}
-	
-.active-dropdown{
-	color:#FFFFFF /* primary super-lightcolor*/;
-	background-color:#B3453E/* primary lightcolor*/;
-}
-
-nav{
-	height:100%;
-	background-color:#A24038;/* primary lightcolor* /* sfondo menu mobile*/
-	position:fixed;
-	width:100%;
-	margin-top:54px;
-	visibility:hidden;
-	overflow:auto;/* permette lo scroll quando il menu è aperto*/	   
-}
-
-nav ul{
-	padding-bottom:54px;
-}
-
-nav ul li a {
-	padding: 16px 0 16px 32px;
-	display:block;
-	color:#fbfafa;
-	font-size:16px;
-	transition: background-color 0.3s ease;
-}
-
-.submenu{
-	color:#FF6759 /* primary super-lightcolor*/;
-	padding-left: 55px;
-	padding-bottom: 5px;
-}
-
-nav ul li ul {
-	padding-left:0; 
-	padding-bottom:0;
-}
-
-nav ul li ul li a {
-	font-size:16px;
-	padding:10px 0 10px 55px;
-	border:hidden; 
-}
-
-.lingua{
-	border-top: 1px solid #B3453E/* primary lightcolor*/; 
-}
-
-.lingua a::before{
-	content: url(img/earth-globe.svg);
-	margin-right: 5px;
-}
-
-/* ----------------- div bar per l'attivazione del menu ------------------ */
-
-#bar{
-	background-color: #A24038 /* primary color*/; 
-	height:54px;
-	width:100%;
-	z-index:2;
-	position:fixed;
-	box-shadow: 0px 0px 3px 2px rgba(0,0,0,0.4);
-}
-
-#bar #logo{
-	float:right;
-	margin-right:12px;
+    float: none;
+    display: block;
+  }
 }
 </style>
 </head>
@@ -313,7 +212,6 @@ nav ul li ul li a {
         <li><a href="aggiungiserver">Aggiungi un Server &#10133;</a></li>
       </ul>
   <li style="float:right"><a class="active" href="register">Aggiungi il tuo server!</a></li>
-  <li style="float:right"><a class="active" href="<?php echo $redirect; ?>"><?php echo $bottone; ?></a></li>
 </ul>
 </div>
 <title>FoxMod Team</title>
